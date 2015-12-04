@@ -1,0 +1,12 @@
+#!/bin/bash
+
+# Add here any the actions which are required before plugin build
+# like packages building, packages downloading from mirrors and so on.
+# The script should return 0 if there were no errors.
+set -eux
+
+DIR="$(dirname `readlink -f $0`)"
+
+mkdir -p "${DIR}/repositories/ubuntu/"
+mkdir -p "${DIR}/repositories/centos/"
+cp "${DIR}/../deb/hithere_1.0-1_amd64.deb" "${DIR}/repositories/ubuntu/"
