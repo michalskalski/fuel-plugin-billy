@@ -1,7 +1,7 @@
 # $fuel_settings = parseyaml(file('/etc/compute.yaml'))
-$pkg_version = "1.0"
+$pkg_version = "1.0-1"
 if $operatingsystem == 'Ubuntu' {
-        package { 'hello':
+        package { 'hithere':
                 ensure => "${pkg_version}",
         }
 } elsif $operatingsystem == 'CentOS' {
