@@ -1,18 +1,14 @@
 # These tasks will be merged into deployment graph. Here you
 # can specify new tasks for any roles, even built-in ones.
 
-- id: fuel-plugin-billy
-  type: group
-  role: [compute]
-
-- id: fuel-plugin-billy-deployment-puppet
+- id: install_package
   type: puppet
-  groups: [fuel-plugin-billy]
+  groups: [compute]
   required_for: [deploy_end]
-  requires: [deploy_start]
+  requires: [top-role-compute]
   parameters:
     puppet_manifest: puppet/manifests/ovs-dpdk-install.pp
-    puppet_modules: ""
+    puppet_modules: puppet/modules:/etc/puppet/modules
     timeout: 3600
 
 #- id: fuel-plugin-billy-post-deployment-sh
